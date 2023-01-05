@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../context/AuthContext';
 import './leftBar.css'
 
 const LeftBar = () => {
+
+    const { currentUser } = useContext(AuthContext);
+
     return (
         <div className='col-xl-2 border-right pt-4 px-3 shadow-sm bg-light position-sticky h-70'>
             <div className='row mx-3'>
                 <div className='col-lg-12 mb-4'>
                     <div className='d-flex align-items-center'>
-                        <img src="/img/icons/user.svg" alt="user" className='img-fluid' style={{ width: "30px" }} />
-                        <div className='mx-2'>Kemal Hojayew</div>
+                        <img src={currentUser.img} alt="user" className='img-fluid' style={{ width: "30px" }} />
+                        <div className='mx-2'>{currentUser.name}</div>
                     </div>
                 </div>
                 <div className='col-lg-12 mb-4'>

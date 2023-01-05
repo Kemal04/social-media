@@ -1,8 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './login.css'
+import { AuthContext } from '../../context/AuthContext'
 
 const Login = () => {
+
+    const { login } = useContext(AuthContext);
+
+    const navigate = useNavigate()
+
+    const handleLogin = () => {
+        login();
+        navigate('/')
+    };
+
     return (
         <div className='login-body'>
             <div className='container'>
@@ -30,7 +41,7 @@ const Login = () => {
                                             <input type="password" className="form-control rounded-0" placeholder='Password' />
                                         </div>
                                         <div className='d-grid'>
-                                            <div className="btn btn-sm btn-outline-dark rounded-0 px-5 fw-bold">Login</div>
+                                            <div className="btn btn-sm btn-outline-dark rounded-0 px-5 fw-bold" onClick={handleLogin}>Login</div>
                                         </div>
                                     </form>
                                 </div>

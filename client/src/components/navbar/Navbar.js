@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faEnvelope, faHome, faList, faMoon, faUser } from '@fortawesome/free-solid-svg-icons'
+import { AuthContext } from '../../context/AuthContext'
 
 const Navbar = () => {
+
+    const { currentUser } = useContext(AuthContext);
+
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-light border-bottom shadow-sm position-sticky top-0">
@@ -51,8 +55,8 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <div className='d-flex align-items-center ms-3'>
-                                    <img src="/img/icons/user.svg" alt="user" className='img-fluid' style={{ width: "30px" }} />
-                                    <div className='mx-2'>Kemal Hojayew</div>
+                                    <img src={currentUser.img} alt={currentUser.name} className='img-fluid' style={{ width: "30px" }} />
+                                    <div className='mx-2'>{currentUser.name}</div>
                                 </div>
                             </ul>
                         </div>
