@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 //ROUTER
-import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 //PAGES
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
@@ -11,39 +11,66 @@ import RightBar from './components/rightBar/RightBar'
 import Navbar from './components/navbar/Navbar'
 //CSS
 import './app.css'
+//CONTEXT
+import { AuthContext } from './context/AuthContext'
 
 const App = () => {
 
-    return (
-        <>
-            <Router>
-                <Routes>
+    const { currentUser } = useContext(AuthContext);
 
-                    <Route path="/" element={<WithNavbar />}>
-                        <Route path='/' element={<Home />}></Route>
-                    </Route>
+    const Layout = () => {
+        return (
+            <div>
+                <Navbar />
+                <div className='row g-0'>
 
-                    <Route path='/register' element={<Register />}></Route>
-                    <Route path='/login' element={<Login />}></Route>
+                    <LeftBar />
 
-                </Routes>
-            </Router>
-        </>
-    )
-}
+                    <Outlet />
 
+                    <RightBar />
 
-const WithNavbar = () => {
-    return (
-        <div className='theme-dark'>
-            <Navbar />
-            <div className='row g-0'>
-                <LeftBar />
-
-                <Outlet />
-
-                <RightBar />
+                </div>
             </div>
+        );
+    };
+
+    const ProtectedRoute = ({ children }) => {
+        if (!currentUser) {
+            return <Navigate to="/login" />;
+        }
+
+        return children;
+    };
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: (
+                <ProtectedRoute>
+                    <Layout />
+                </ProtectedRoute>
+            ),
+            children: [
+                {
+                    path: "/",
+                    element: <Home />,
+                }
+            ],
+        },
+        {
+            path: "/login",
+            element: <Login />,
+        },
+        {
+            path: "/register",
+            element: <Register />,
+        },
+    ]);
+
+    return (
+        <div>
+            <RouterProvider router={router} />
         </div>
     );
 }
