@@ -2,10 +2,10 @@ import React from 'react'
 
 const RightBar = () => {
     return (
-        <div className='col-xl-3 border-right py-3 px-4 position-sticky h-70'>
+        <div className='col-xl-3 border-right py-3 px-4 position-sticky h-70 bg-light'>
             <div className='row'>
 
-                <div className='col-xl-12 bg-light p-4 shadow-sm mb-4'>
+                <div className='col-xl-12 bg-white p-4 shadow-sm mb-4'>
                     <div className='small mb-4 text-secondary'>Suggestions For You</div>
                     <div className='d-flex align-items-center justify-content-between mb-4'>
                         <div className='d-flex align-items-center'>
@@ -29,7 +29,7 @@ const RightBar = () => {
                     </div>
                 </div>
 
-                <div className='col-xl-12 bg-light p-4 shadow-sm mb-4'>
+                <div className='col-xl-12 bg-white p-4 shadow-sm mb-4'>
                     <div className='small mb-4 text-secondary'>Last Activity</div>
                     <div className='d-flex align-items-center justify-content-between mb-4'>
                         <div className='d-flex align-items-center'>
@@ -81,7 +81,7 @@ const RightBar = () => {
                     </div>
                 </div>
 
-                <div className='col-xl-12 bg-light p-4 shadow-sm'>
+                <div className='col-xl-12 bg-white p-4 shadow-sm'>
                     <div className='small mb-4 text-secondary'>Online Friends</div>
                     <div className='d-flex align-items-center justify-content-between mb-4'>
                         <div className='d-flex align-items-center'>

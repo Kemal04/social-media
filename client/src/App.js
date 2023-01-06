@@ -5,12 +5,11 @@ import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, RouterProvide
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import Home from './pages/home/Home'
+import Profile from './pages/profile/Profile'
 //COMPONENTS
 import LeftBar from './components/leftBar/LeftBar'
 import RightBar from './components/rightBar/RightBar'
 import Navbar from './components/navbar/Navbar'
-//CSS
-import './app.css'
 //CONTEXT
 import { AuthContext } from './context/AuthContext'
 
@@ -26,7 +25,9 @@ const App = () => {
 
                     <LeftBar />
 
-                    <Outlet />
+                    <div className='col-xl-7 bg-light'>
+                        <Outlet />
+                    </div>
 
                     <RightBar />
 
@@ -55,6 +56,10 @@ const App = () => {
                 {
                     path: "/",
                     element: <Home />,
+                },
+                {
+                    path: "/profile/:id",
+                    element: <Profile />,
                 }
             ],
         },
