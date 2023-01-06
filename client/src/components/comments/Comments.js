@@ -27,7 +27,7 @@ const Comments = () => {
             <div className="col-xl-12">
                 <div className='row justify-content-between align-items-center'>
                     <div className='col-xl-1'>
-                        <img src={currentUser.img} style={{ width: "40px" }} />
+                        <img src={currentUser.img} style={{ width: "40px" }} alt={currentUser.name}/>
                     </div>
                     <div className='col-xl-10'>
                         <input className='form-control py-1 rounded-0' type="text" placeholder="Write a comment" />
@@ -40,7 +40,7 @@ const Comments = () => {
             {comments.map((comment) => (
                 <div className="row align-items-baseline">
                     <div className='col-xl-1'>
-                        <img src={comment.profileImg} className="img-fluid rounded-circle mt-4" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
+                        <img src={comment.profileImg} alt="Comment" className="img-fluid rounded-circle mt-4" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
                     </div>
                     <div className='col-xl-11'>
                         <div className='row align-items-center'>

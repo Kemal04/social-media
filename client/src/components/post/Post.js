@@ -34,7 +34,7 @@ const Post = ({ post }) => {
                     <div className='col-xl-12'>
                         <div className="mt-3">
                             <p>{post.desc}</p>
-                            <img src={post.img} className="w-100" style={{ maxHeight: "500px", objectFit: "cover" }} />
+                            <img src={post.img} className="w-100" style={{ maxHeight: "500px", objectFit: "cover" }} alt="img"/>
                         </div>
                     </div>
 
@@ -43,18 +43,18 @@ const Post = ({ post }) => {
                             <div className="me-3">
                                 {liked
                                     ?
-                                    <img src='/img/icons/heart-black.png' className='img-fluid me-2' style={{ width: "20px" }} />
+                                    <img src='/img/icons/heart-black.png' className='img-fluid me-2' style={{ width: "20px" }} alt="img"/>
                                     :
-                                    <img src='/img/icons/heart-white.png' className='img-fluid me-2' style={{ width: "20px" }} />
+                                    <img src='/img/icons/heart-white.png' className='img-fluid me-2' style={{ width: "20px" }} alt="img"/>
                                 }
                                 12 Likes
                             </div>
                             <div className="mx-3" onClick={() => setCommentOpen(!commentOpen)}>
-                                <img src='/img/icons/comment.png' className='img-fluid me-2' style={{ width: "20px" }} />
+                                <img src='/img/icons/comment.png' className='img-fluid me-2' style={{ width: "20px" }} alt="img"/>
                                 12 Comments
                             </div>
                             <div className="mx-3">
-                                <img src='/img/icons/share.png' className='img-fluid me-2' style={{ width: "20px" }} />
+                                <img src='/img/icons/share.png' className='img-fluid me-2' style={{ width: "20px" }} alt="img"/>
                                 Share
                             </div>
                         </div>

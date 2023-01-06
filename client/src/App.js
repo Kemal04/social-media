@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 //ROUTER
-import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Outlet, Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 //PAGES
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
