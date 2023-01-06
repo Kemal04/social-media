@@ -1,9 +1,12 @@
 import React from 'react'
+import Posts from '../../components/posts/Posts'
+import Stories from '../../components/stories/Stories'
 
 const Home = () => {
     return (
-        <div className='col-xl-7'>
-            
+        <div className='my-5'>
+            <Stories />
+            <Posts />
         </div>
     )
 }

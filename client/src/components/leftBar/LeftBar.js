@@ -1,19 +1,20 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import './leftBar.css'
+import { Link } from 'react-router-dom'
 
 const LeftBar = () => {
 
     const { currentUser } = useContext(AuthContext);
 
     return (
-        <div className='col-xl-2 border-right pt-4 px-3 shadow-sm bg-light position-sticky h-70'>
+        <div className='col-xl-2 border-right pt-4 px-3 shadow-sm position-sticky h-70'>
             <div className='row mx-3'>
                 <div className='col-lg-12 mb-4'>
-                    <div className='d-flex align-items-center'>
+                    <Link to={`/profile/${currentUser.id}`} className='d-flex align-items-center text-decoration-none text-dark'>
                         <img src={currentUser.img} alt="user" className='img-fluid' style={{ width: "30px" }} />
                         <div className='mx-2'>{currentUser.name}</div>
-                    </div>
+                    </Link>
                 </div>
                 <div className='col-lg-12 mb-4'>
                     <div className='d-flex align-items-center'>

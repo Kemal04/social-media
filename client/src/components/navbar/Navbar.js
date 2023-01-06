@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-light border-bottom shadow-sm position-sticky top-0">
+            <nav className="navbar navbar-expand-lg bg-white border-bottom shadow-sm position-sticky top-0 " style={{ zIndex:"10"}}>
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand text-primary fw-bold">Social Media</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,10 +54,10 @@ const Navbar = () => {
                                         <FontAwesomeIcon icon={faBell} />
                                     </Link>
                                 </li>
-                                <div className='d-flex align-items-center ms-3'>
+                                <Link to={`/profile/${currentUser.id}`} className='d-flex align-items-center ms-3 text-decoration-none text-dark'>
                                     <img src={currentUser.img} alt={currentUser.name} className='img-fluid' style={{ width: "30px" }} />
                                     <div className='mx-2'>{currentUser.name}</div>
-                                </div>
+                                </Link>
                             </ul>
                         </div>
                     </div>
